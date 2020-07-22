@@ -1,2 +1,4 @@
 # RemLight21
-a Light Theme for Remnote.io by _Phi
+a css light Theme for Remnote.io by _Phi
+load with Stylus / Stylish.
+
