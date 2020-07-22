@@ -1,0 +1,635 @@
+/* ==UserStyle==
+@name           RemLight21
+@namespace      https://github.com/cannibalox/
+@version        1.0.0
+@description    A Light Theme for RemNote.io
+@author         _Phi / www.hpx1.com
+==/UserStyle== */
+
+@-moz-document domain("remnote.io") {
+:root {
+	--accent: #67bcf9;
+	--accent2: #0cb2ff;
+	--accent3: #2584f8;
+	--accentstrong: #ff0000a3;
+	--bgcol: #fff;
+	--bglight: #f8f8f8;
+	--bgmed: #bfbfbf;
+	--border: #c8c8c8;
+	--borderlight: #e4e4e4;
+	--codebg: #1d2429;
+	--currentsel: #bdeefe78;
+	--currentsel2: #8deafa;
+	--flash: #ffffa5;
+	--focusrem: #ff5d7240;
+	--hover: #ccedf4a8;
+	--linknode: #0e8dfc;
+	--neutraldark: #4d4d4d;
+	--portal: #d6f4f9;
+	--queuebadge: black;
+	--queuebg: #1179ff;
+	--queuetext: white;
+	--quotebg: #eff8f6;
+	--quoteborder: #e7e7e7;
+	--quotetext: #f90b63;
+	--remcustomicon: #33e308;
+	--remindent: #5aadea99;
+	--remlink: #0072e4;
+	--remrefbg: #f7fdc4db;
+	--search: #b67fec;
+	--secondary: #85e80e;
+	--shadow: #00000030;
+	--tagbg: #feffd5;
+	--tagcol: #303030;
+}
+/*========= SIDEBAR ===========*/
+#main #content #document-sidebar {
+	transition: margin-left .1s, height .1s, width .1s, opacity .1s;
+	border-right: solid;
+	border-color: var(--border);
+	border-width: 1px;
+	box-shadow: none;
+	height: 100%;
+	overflow: hidden;
+	background-color: var(--bglight);
+	z-index: 4;
+	max-width: 240px;
+	display: flex;
+	flex-direction: column;
+	color: rgba(25, 25, 25, 0.72);
+}
+i.icon,
+i.icons {
+	font-size: 1em;
+}
+i.icon {
+	display: inline-block;
+	opacity: 1;
+	margin: 0 .15rem 0 0;
+	width: 1.18em;
+	height: 1em;
+	font-family: Icons;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: inherit;
+	text-align: center;
+	speak: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+#ArticleDocumentButton i.icon.file.text.large.icon {
+	margin: 0px 15px 0px 0px;
+}
+/* annotate icon NE */
+/* ==== sidebar documents icons ==== */
+.DocumentSidebarMyDocumentsButtons i {
+	color: var(--accent) !important;
+}
+/* ==== sidebar documents icon folder ==== */
+.DocumentSidebarMyDocumentsButtons i.folder.fitted.icon {
+	color: orange !important;
+	top: -2px;
+	left: 1px;
+	display: inline;
+	position: relative;
+}
+.DocumentSidebarMyDocumentsButtons i.add.corner.icon {
+	color: red !important;
+	top: -0px;
+	left: -4px;
+	display: inline;
+	position: relative;
+}
+
+/* ---- user icon NW ----*/
+i.user.icon {
+	color: var(--accent2) !important;
+}
+/*=====logo=======*/
+#homepage #content #document-sidebar #document-sidebar_top #logo img,
+#main #content #document-sidebar #document-sidebar_top #logo img {
+	transition: filter .5s;
+	filter: contrast(150%) !important;
+	height: 20px;
+	margin-top: 1px;
+	margin-left: 8px;
+	margin-bottom: 4px;
+	text-align: left;
+}
+#homepage #content #document-sidebar #document-sidebar_top #logo,
+#main #content #document-sidebar #document-sidebar_top #logo {
+	text-align: left;
+}
+/*==== sidebar bottom menu ==== */
+#document-sidebar__bottom-menu {
+	padding-top: 4px;
+	font-size: 10px;
+	text-align: center;
+	color: #848484 !important;
+	border-color: var(--border);
+	border-top-color: var(--border);
+	border-top: solid var(--border);
+	border-top-width: medium;
+	border-width: 0px;
+	margin-bottom: 0px;
+	background-color: var(--bglight);
+}
+#document-sidebar__buttons-menu__buttons {
+	text-align: left;
+	margin-left: 4px;
+}
+#main #content #document-sidebar #document-sidebar__bottom-menu .document-sidebar__current-route {
+	color: #000 !important;
+	background-color: var(--flash) !important;
+}
+/*===== sidebar current selection====*/
+#homepage #content #document-sidebar #DocumentationList .document-list-item--opened,
+#homepage #content #document-sidebar #documentList .document-list-item--opened,
+#main #content #document-sidebar #DocumentationList .document-list-item--opened,
+#main #content #document-sidebar #documentList .document-list-item--opened {
+	background-color: var(--currentsel)!important;
+}
+
+#homepage #content #document-sidebar #DocumentationList .document-list-item:hover,
+#homepage #content #document-sidebar #DocumentationList .documentListHeader:hover,
+#homepage #content #document-sidebar #documentList .document-list-item:hover,
+#homepage #content #document-sidebar #documentList .documentListHeader:hover,
+#main #content #document-sidebar #DocumentationList .document-list-item:hover,
+#main #content #document-sidebar #DocumentationList .documentListHeader:hover,
+#main #content #document-sidebar #documentList .document-list-item:hover,
+#main #content #document-sidebar #documentList .documentListHeader:hover {
+	background-color: var(--hover)!important;
+}
+#main #content #document-sidebar #document-sidebar__link:hover {
+	background-color: var(--hover)!important;
+}
+#main #content #document-sidebar #document-sidebar__link:selected {
+	background-color: var(--accent)!important;
+}
+/*=======NE ellipsis hover ======= */
+#document .documentMenu .documentOptions:hover {
+	color: var(--accentstrong) !important;
+}
+i.ellipsis horizontal icon:hover {
+	color: var(--accentstrong) !important;
+}
+/*========= documents page table ======*/
+.ui.button {
+	cursor: pointer;
+	display: inline-block;
+	min-height: 1em;
+	outline: 0;
+	border: none;
+	vertical-align: baseline;
+	background: var(--secondary) none;
+	color: rgba(0, 0, 0, .6);
+}
+.ui.button:hover {
+	background-color: var(--accent2);
+	background-image: none;
+	color: rgba(0, 0, 0, .8);
+}
+.ReactVirtualized__Table__row {
+	background: var(--bgcol) !important;
+	border-top: 1px solid var(--borderlight) !important;
+}
+#DocumentTable .DocumentLink {
+	display: block;
+	padding: 4px 0px 0px 0px;
+	height: 100%;
+}
+/*===== doc hover preview from sidebar ==== */
+#document-hover-preview {
+	position: fixed;
+	z-index: 5;
+	background-color: var(--bgcol);
+	border: 3px solid var(--portal);
+	padding: 10px 0 10px 20px;
+	font-size: 14px;
+	font-weight: 400;
+	color: initial;
+	text-align: initial;
+	overflow: hidden;
+	box-shadow: 2px 2px 6px 0px var(--shadow);
+}
+#document-hover-preview .rem-text {
+	font-size: 10px;
+}
+/*====== body =====*/
+body {
+	line-height: 1.45 !important;
+	background-color: var(--bgcol);
+	height: 100%;
+	margin: 0;
+	font-family: Barlow, Armata, Roboto, Abel, Open Sans, Helvetica, Arial, Segoe UI, Verdana, Segoe UI Symbol;
+	-webkit-font-smoothing: auto;
+	font-size: 12px;
+}
+.rem-indented-indicator {
+	color: var(--remindent);
+	margin: 0px -1px 0px -3px;
+}
+.rem-reference-link {
+	color: var(--remlink);
+	font-weight: 500;
+}
+.rem-reference-link:hover {
+	background-color: var(--remrefbg);
+	border: 0.3px solid var(--borderlight);
+	border-top: 0.3px solid var(--borderlight);
+}
+
+.rem-reference {
+	border-radius: 1px;
+	padding: 0px 0px 2px 0px;
+}
+#rem-reference__exclude-type-parent {
+	position: relative;
+	margin-left: 3px;
+	margin-right: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	top: 0px;
+	background-color: var(--bgcol);
+	border-radius: 4px;
+}
+#hierarchy-editor .rem-container--importable .rem-bullet__plus:hover {
+	color: var(--secondary);
+	text-shadow: 0 0 0px var(--secondary);
+}
+#hierarchy-editor .rem-container--importable .rem-bullet__plus {
+	color: var(--secondary);
+}
+.LinkNode {
+	color: var(--linknode);
+}
+#hierarchy-editor .HierarchyEditorChildrenList {
+	margin-bottom: 3px;
+	display: inline-block;
+	color: var(--accent3);
+	font-size: 11px;
+	font-style: normal;
+	padding-left: 0px;
+	padding-right: 5px;
+	position: relative;
+	margin-top: 9px;
+}
+#hierarchy-editor__tag-bar__tag {
+	border-radius: 5px;
+	padding: 0px 5px 1px 5px;
+	color: var(--tagcol);
+	font-size: 10px;
+	margin-left: 5px;
+	background-color: var(--tagbg);
+	white-space: pre;
+}
+/* --- tag # et hidden concept ------*/
+.HierarchyEditorChildrenList {
+	margin-bottom: 3px;
+	display: inline-block;
+	color: #67bcf9;
+	font-size: 11px;
+	font-style: italic;
+	padding-left: 4px;
+	padding-right: 6px;
+	position: relative;
+	margin-top: 0px;
+}
+
+/* ---- code &quote -------- */
+#code-node {
+	background-color: var(--codebg);
+	filter: brightness(150%);
+	color: #aaa8a8;
+	font-size: 12px;
+	font-family: Fira Code, Consolas, Source Code Pro, monospace;
+}
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.property, .token.symbol, .token.tag {
+    color: #446d92;
+}	
+#quote,
+.quote {
+	background-color: var(--quotebg);
+	border: thin solid var(--quoteborder);
+	color: var(--quotetext);
+	font-weight: 500;
+	border-radius: 3px;
+	padding-right: 2px;
+	padding-left: 2px;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+/* ====== RICH TEXT CONTEXT MENU ===== */
+.rich-text-editor__selected-text-menu {
+	background-color: var(--bgcol);
+	box-shadow: 2px 2px 3px 0px #03030324 !important;
+	border-radius: 5px;
+	border: thin solid #dcdcdc;
+	margin-top: 5px;
+}
+.search-results #search-results__list #search-results__result:hover {
+	background-color: var(--hover);
+}
+
+/*=====rem custom type icon ======*/
+.rem-is-custom-rem-type {
+	color: var(--remcustomicon);
+	font-weight: 700;
+}
+/*===== H1 HEADERS =====*/
+.rem-header--1 {
+	font-size: 20px;
+	font-weight: 700;
+	background-color: var(--currentsel) !important;
+}
+/*==== rem portal ====*/
+#hierarchy-editor .rem-text {
+	margin-bottom: 0px;
+}
+/*===== portals =======*/
+.portalRem .portalRemTop {
+	text-align: right;
+	border-color: var(--portal);
+	border-top-width: medium;
+	border-width: 3px;
+	position: relative;
+	margin-left: 15px;
+	top: -4px;
+	padding-top: 5px;
+}
+.portal-rem--blue {
+	border-color: var(--portal);
+}
+.portal-tree-node {
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	border-left: 2px solid var(--portal);
+	border-bottom-color: var(--portal);
+	border-right: 2px solid var(--portal);
+	border-top-color: var(--portal);
+	margin-left: -7px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.HierarchyEditorAfterPortalBlue {
+	border-color: var(--portal);
+}
+.ImportAllContentsButton {
+	padding-right: 10px;
+	padding-left: 20px;
+	color: #aeacac;
+	font-size: 9px;
+}
+.ImportAllContentsButton:hover {
+	color: var(--secondary);
+}
+
+/*===== portals 2 =======*/
+.embeddedSearch {
+	border-radius: 1px;
+	border-style: solid;
+	border-color: var(--border);
+	text-decoration: none;
+	padding: 5px 5px 5px 15px;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	margin-right: 30px;
+	border-width: 1px;
+}
+#no-search-results {
+	color: grey;
+	text-align: center;
+	padding: 0px 0px 20px 0px;
+	margin-bottom: 4px;
+}
+#show-embedded-search-button {
+	padding: 4px;
+	margin-right: 0;
+	margin-top: 4px;
+	margin-left: -6px;
+	border: thin solid var(--search);
+}
+#hierarchy-editor .indented-hierarchy-editor-rem--portal-embedded-search {
+	border-color: var(--search);
+}
+.remInEmbeddedSearch {
+	border-color: var(--search);
+}
+#hierarchy-editor .indented-hierarchy-editor-remPortal {
+	margin-left: -7px;
+}
+#hierarchy-editor .portalRem .portal-rem-top--embedded-search-top {
+	border-color: var(--search);
+	border-top-color: var(--search);
+	text-align: right;
+	border-top: solid var(--search);
+	border-top-width: medium;
+	border-width: 2px;
+	position: relative;
+	top: -4px;
+	padding-top: 5px;
+}
+#hierarchy-editor .portal-rem--embedded-search {
+	border-color: var(--search);
+}
+#hierarchy-editor .search-portal-tree-node {
+	border-bottom-width: 2px;
+	border-top-width: 2px;
+	border-left: 2px solid var(--search);
+	border-bottom-color: var(--search);
+	border-right: 2px solid var(--search);
+	border-top-color: var(--search);
+	margin-left: -7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 12px;
+}
+#hierarchy-editor .indented-hierarchy-editor-rem--after-portal-embedded-search {
+	border-color: var(--search);
+	margin-top: -4px;
+}
+/*----- separator ---------*/
+#hierarchy-editor .rem-container__top-level-spacer .rem-container__top-level-spacer__inner {
+	border-color: var(--borderlight);
+	border-top-color: var(--borderlight);
+	border-top: solid var(--borderlight);
+	border-top-width: medium;
+	border-width: medium;
+	bottom: 15px;
+	position: relative;
+	left: 8px;
+}
+/*===== tree node color ====== */
+.TreeNode {
+	margin-left: 3.5px;
+	padding-left: 20px;
+	border-left: solid;
+	border-left-color: currentcolor;
+	border-left-width: medium;
+	border-width: thin;
+	border-color: var(--borderlight) !important;
+	transition-timing-function: linear;
+}
+/* ......tree node color when horiz split...*/
+#hierarchy-editor .indented-hierarchy-editor-rem {
+	border-color: var(--borderlight) !important;
+	border-left: 1px solid var(--borderlight) !important;
+}
+/* ==== context menu ==== */
+.react-contextmenu--visible {
+	background-color: var(--bglight);
+	box-shadow: 5px 5px 4px -3px #00000036;
+	border: thin solid var(--border);
+	border-radius: 3px;
+	z-index: 9999;
+	display: block;
+	font-size: small;
+	padding: 2px 6px 5px 7px;
+}
+.ui.dropdown .menu > .item {
+	font-size: 0.85rem;
+}
+#search-results__result {
+		max-width:550px;
+}
+	/* --- display shortcuts --- */
+.keycode {
+	font-size: 65%;
+	transform: translateY(5%);
+	color: var(--accent2);
+	float: right;
+	margin-left: 10px;
+	font-weight: bold;
+	border: 0.3px solid var(--accent);
+	padding: 0px 4px 0px 4px;
+}
+#search-results__result .keycode {
+	line-height:15px;
+	font-size: 10px;
+	font-weight: normal;
+	}
+/*===== history boxes ====*/
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot:hover {
+	box-shadow: 0px 0px 0px 1px;
+}
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot {
+	border-radius: 0px;
+	background-color: var(--portal);
+	border: 1px solid var(--portal);
+	display: inline-block;
+	width: 11px;
+	height: 2px;
+}
+/*===== add a portal button SE====*/
+#hierarchyEditorToolbarContainer #hierarchyEditorGlobalInsert .rich-text-editor {
+	border: thin solid #c8c8c8;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 5px;
+	margin: 5px 5px 4px;
+}
+#search-results__controls {
+	color: grey;
+	font-size: 10px;
+	padding-top: 4px;
+	padding-bottom: 5px;
+	text-align: center;
+	padding: 0px 0px 1px 2px;
+	line-height: 1.5em;
+}
+.search-results {
+	font-weight: 300;
+	color: #000;
+	font-size: 13px;
+	line-height: 1.4em;
+}
+.search-results #search-results__list {
+	padding: 10px 5px 0px 6px;
+	overflow-y: auto;
+	max-height: calc(100vh - 80px);
+}
+.search-results #search-results__list #search-results__result:not(:last-child) {
+	border-color: #ddd9d9;
+	border-bottom: solid #cde5ec;
+	border-width: thin;
+}
+/*==== rem highlight ======*/
+#hierarchy-editor .isToolbarPreviousFocusRem {
+	box-shadow: none !important;
+	border: 1px solid var(--accentstrong);
+	background-color: var(--focusrem);
+	margin: -1px;
+}
+.flash {
+	background-color: var(--flash) !important;
+	box-shadow: none !important;
+}
+
+/* ==== flashcards ======*/
+#ArticleQueue .QueueFocused {
+    box-shadow: 0 0 0 5px var(--currentsel2);
+}
+.Queue {
+	margin: auto;
+	background-color: var(--bgcol);
+	border: thin solid var(--queuebg);
+	display: inline-block;
+	min-width: 400px;
+}
+.Queue #queue__title {
+	background-color: var(--queuebg);
+	text-align: center;
+	padding: 4px;
+	position: relative;
+	color: var(--queuetext);
+}
+.Queue #queue__progress-bar {
+	background-color: var(--secondary) !important;
+	height: 3px;
+}
+.Queue #QueueBadge {
+	padding: 2px;
+	margin: 2px 2px 2px 10px;
+	border-style: none;
+	border-radius: 10px;
+	display: inline-block;
+	background-color: var(--queuebadge);
+	text-align: center;
+}
+.spacedRepetition .spaced-repetition__reveal {
+	background-color: var(--queuebg);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--queuetext);
+}
+.spacedRepetition .spaced-repetition__bottom {
+	bottom: 0;
+	height: 100px;
+	background-color: var(--queuebg);
+	margin-top: auto;
+	z-index: 1;
+}
+.queue__buttons {
+	display: flex;
+	background-color: var(--queuebg);
+	height: 50%;
+}
+.queue__response-button {
+	color: var(--queuetext);
+}
+.queue__response-button:hover {
+	background-color: var(--secondary);
+	color: var(--queuetext);
+}
+.spacedRepetition .fill-in-the-blank {
+	color: var(--queuebg);
+}
+.Queue #queue__title #QueueBackButton:hover {
+	background-color: var(--secondary);
+	color: #fff;
+}
+}
