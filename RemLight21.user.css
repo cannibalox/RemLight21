@@ -448,7 +448,7 @@ body {
 }
 #hierarchy-editor .indented-hierarchy-editor-rem--after-portal-embedded-search {
 	border-color: var(--search);
-	margin-top: -4px;
+	margin-top: 0px;
 }
 /*----- separator ---------*/
 #hierarchy-editor .rem-container__top-level-spacer .rem-container__top-level-spacer__inner {
