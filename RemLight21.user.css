@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           RemLight21
 @namespace      https://github.com/cannibalox/
-@version        1.0.1
+@version        1.1.0
 @description    A Light Theme for RemNote.io
 @author         _Phi / www.hpx1.com
 @updateURL      https://raw.githubusercontent.com/cannibalox/RemLight21/master/RemLight21.user.css
@@ -18,6 +18,7 @@
 	--bgmed: #bfbfbf;
 	--border: #c8c8c8;
 	--borderlight: #e4e4e4;
+    --clozebg: #e9defc;
 	--codebg: #1d2429;
 	--currentsel: #bdeefe78;
 	--currentsel2: #8deafa;
@@ -25,8 +26,10 @@
 	--focusrem: #ff5d7240;
 	--hover: #ccedf4a8;
 	--linknode: #0e8dfc;
+    --muted: #b6b6b6;
 	--neutraldark: #4d4d4d;
-	--portal: #d6f4f9;
+	--portal: #d0edf7;
+    --portalbg: #f6fbfc;
 	--queuebadge: black;
 	--queuebg: #1179ff;
 	--queuetext: white;
@@ -37,11 +40,12 @@
 	--remindent: #5aadea99;
 	--remlink: #0072e4;
 	--remrefbg: #f7fdc4db;
-	--search: #b67fec;
+	--search: #8f21d8;
 	--secondary: #85e80e;
 	--shadow: #00000030;
 	--tagbg: #feffd5;
 	--tagcol: #303030;
+     
 }
 /*========= SIDEBAR ===========*/
 #main #content #document-sidebar {
@@ -85,18 +89,18 @@ i.icon {
 }
 /* annotate icon NE */
 /* ==== sidebar documents icons ==== */
-.DocumentSidebarMyDocumentsButtons i {
+#document-sidebar i {
 	color: var(--accent) !important;
 }
 /* ==== sidebar documents icon folder ==== */
-.DocumentSidebarMyDocumentsButtons i.folder.fitted.icon {
+#document-sidebar i.folder.fitted.icon {
 	color: orange !important;
 	top: -2px;
 	left: 1px;
 	display: inline;
 	position: relative;
 }
-.DocumentSidebarMyDocumentsButtons i.add.corner.icon {
+#document-sidebar i.add.corner.icon {
 	color: red !important;
 	top: -0px;
 	left: -4px;
@@ -206,17 +210,17 @@ i.ellipsis horizontal icon:hover {
 	position: fixed;
 	z-index: 5;
 	background-color: var(--bgcol);
-	border: 3px solid var(--portal);
-	padding: 10px 0 10px 20px;
-	font-size: 14px;
+    border-style: solid;
+	border: 1px solid #535353;
+	padding: 20px 30px;
 	font-weight: 400;
 	color: initial;
 	text-align: initial;
 	overflow: hidden;
-	box-shadow: 2px 2px 6px 0px var(--shadow);
+	box-shadow: 3px 3px 9px 1px var(--shadow);
 }
 #document-hover-preview .rem-text {
-	font-size: 10px;
+	font-size: 12px;
 }
 /*====== body =====*/
 body {
@@ -350,33 +354,46 @@ body {
 	margin-bottom: 0px;
 }
 /*===== portals =======*/
-.portalRem .portalRemTop {
+#hierarchy-editor .portal-rem {
+    border-style: none solid;
+    border-width: 1px;
+    margin-top: 3px;
+    margin-left: -7px;
+    margin-right: -7px;
+    padding-top: 4px;
+    height: 100%;
+}
+#hierarchy-editor .portal-rem .portal-rem-top {
 	text-align: right;
 	border-color: var(--portal);
 	border-top-width: medium;
-	border-width: 3px;
+	border-width: 1px;
 	position: relative;
 	margin-left: 15px;
 	top: -4px;
 	padding-top: 5px;
 }
 .portal-rem--blue {
-	border-color: var(--portal);
+    background-color: var(--portalbg);
 }
-.portal-tree-node {
-	border-bottom-width: 2px;
-	border-top-width: 2px;
-	border-left: 2px solid var(--portal);
-	border-bottom-color: var(--portal);
-	border-right: 2px solid var(--portal);
-	border-top-color: var(--portal);
-	margin-left: -7px;
-	padding-left: 10px;
-	padding-right: 10px;
+#hierarchy-editor .portal-tree-node {
+    background-color: var(--portalbg);
+    border-bottom-width: 1px;
+    border-top-width: 2px;
+    border-left: 1px solid var(--portal);
+    border-bottom-color: var(--portal);
+    border-right: 1px solid var(--portal);
+    border-top-color: var(--portal);
+    margin-left: -7px;
+    margin-right: -7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 .HierarchyEditorAfterPortalBlue {
 	border-color: var(--portal);
 }
+/*
 .ImportAllContentsButton {
 	padding-right: 10px;
 	padding-left: 20px;
@@ -385,9 +402,10 @@ body {
 }
 .ImportAllContentsButton:hover {
 	color: var(--secondary);
-}
+}*/
 
 /*===== portals 2 =======*/
+
 .embeddedSearch {
 	border-radius: 1px;
 	border-style: solid;
@@ -395,22 +413,31 @@ body {
 	text-decoration: none;
 	padding: 5px 5px 5px 15px;
 	margin-bottom: 4px;
-	margin-left: 4px;
+	margin-left: 12px;
 	margin-right: 30px;
 	border-width: 1px;
 }
 #no-search-results {
-	color: grey;
+	color: var(--search);
+    font-weight: 500;
 	text-align: center;
 	padding: 0px 0px 20px 0px;
 	margin-bottom: 4px;
 }
 #show-embedded-search-button {
 	padding: 4px;
-	margin-right: 0;
+	margin-right: 40px;
 	margin-top: 4px;
-	margin-left: -6px;
-	border: thin solid var(--search);
+	margin-left: -7px;
+    margin-bottom:-3.5px;
+	border: 0px solid var(--search);
+    color: var(--search);
+    font-weight:500;
+}
+#hierarchy-editor .rem-container {
+    display: block;
+    margin-left: -30px;
+    padding-left: 30px;
 }
 #hierarchy-editor .indented-hierarchy-editor-rem--portal-embedded-search {
 	border-color: var(--search);
@@ -427,7 +454,7 @@ body {
 	text-align: right;
 	border-top: solid var(--search);
 	border-top-width: medium;
-	border-width: 2px;
+	border-width: 1px;
 	position: relative;
 	top: -4px;
 	padding-top: 5px;
@@ -435,21 +462,36 @@ body {
 #hierarchy-editor .portal-rem--embedded-search {
 	border-color: var(--search);
 }
+
 #hierarchy-editor .search-portal-tree-node {
-	border-bottom-width: 2px;
-	border-top-width: 2px;
-	border-left: 2px solid var(--search);
-	border-bottom-color: var(--search);
-	border-right: 2px solid var(--search);
-	border-top-color: var(--search);
-	margin-left: -7px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 12px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-left: 1px solid var(--search);
+    border-bottom-color: var(--search);
+    border-right: 1px solid var(--search);
+    border-top-color: var(--search);
+    margin-left: -7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 12px;
+}  
+#hierarchy-editor .portal-rem .portal-rem-top--embedded-search-top {
+    border-color: var(--search);
+    text-align: right;
+    border-top: solid var(--search);
+    border-width: 1px;
+    position: relative;
+    top: -4px;
+    padding-top: 5px;
 }
 #hierarchy-editor .indented-hierarchy-editor-rem--after-portal-embedded-search {
 	border-color: var(--search);
 	margin-top: 0px;
+}
+#hierarchy-editor .rem-container--not-included-in-document-scope {
+    color: var(--muted);
+    font-size: 11px;
+    padding-left: 15px!important;
 }
 /*----- separator ---------*/
 #hierarchy-editor .rem-container__top-level-spacer .rem-container__top-level-spacer__inner {
@@ -511,17 +553,40 @@ body {
 	font-size: 10px;
 	font-weight: normal;
 	}
-/*===== history boxes ====*/
-#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot:hover {
-	box-shadow: 0px 0px 0px 1px;
+/*===== history boxes / thinking trail ====*/
+#thinking-trail-history {
+    width: 25px;
+    height: 100%;
+    z-index: 2;
 }
-#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot {
-	border-radius: 0px;
-	background-color: var(--portal);
-	border: 1px solid var(--portal);
-	display: inline-block;
-	width: 11px;
-	height: 2px;
+
+#thinking-trail-history:hover #thinking-trail-history__container {
+    background-color: #fcfcfc;
+    box-shadow: 0 0 0px 0;
+    border-bottom-right-radius: 10px;
+    overflow: visible;
+    width: auto;
+}
+#thinking-trail-history #thinking-trail-history__container {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    padding-top: 20px;
+    padding-right: 3px;
+    width: 10px;
+    overflow: hidden;
+}   
+#thinking-trail-history #thinking-trail-history__document-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: -7px;
+    margin-left: 10px;
+}   
+i.grey.icon {
+    color: #767676!important;
+}
+i.grey.icon:hover {
+    color: red!important;
 }
 /*===== add a portal button SE====*/
 #hierarchyEditorToolbarContainer #hierarchyEditorGlobalInsert .rich-text-editor {
@@ -555,6 +620,9 @@ body {
 	border-color: #ddd9d9;
 	border-bottom: solid #cde5ec;
 	border-width: thin;
+}
+#hierarchy-editor .isSearchResult {
+    background-color: var(--portalbg);
 }
 /*==== rem highlight ======*/
 #hierarchy-editor .isToolbarPreviousFocusRem {
@@ -632,5 +700,21 @@ body {
 .Queue #queue__title #QueueBackButton:hover {
 	background-color: var(--secondary);
 	color: #fff;
+}
+/*==== cloze ====*/
+.cloze {
+    background-color: var(--clozebg);
+}
+    
+/*==== icon triangle arrow ====*/   
+i.icon.triangle.down:before {
+    content: "\f0d7";
+    color: var(--accentstrong);
+    position:relative;
+    top:-3px;
+}
+/*==== bullets ====*/    
+#hierarchy-editor .rem-container--default .rem-bullet__container, #hierarchy-editor .rem-container--default .rem-hamburger, #hierarchy-editor .rem-container--default .toggleCollapseButton {
+    margin-top: 7.75px;
 }
 }
