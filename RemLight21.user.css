@@ -1,10 +1,11 @@
 /* ==UserStyle==
 @name           RemLight21
 @namespace      https://github.com/cannibalox/
-@version        1.1.0
+@version        1.6.0
 @description    A Light Theme for RemNote.io
 @author         _Phi / www.hpx1.com
 @updateURL      https://raw.githubusercontent.com/cannibalox/RemLight21/master/RemLight21.user.css
+
 ==/UserStyle== */
 
 @-moz-document domain("remnote.io") {
@@ -13,6 +14,7 @@
 	--accent2: #0cb2ff;
 	--accent3: #2584f8;
 	--accentstrong: #ff0000a3;
+    --alert: #f00;
 	--bgcol: #fff;
 	--bglight: #f8f8f8;
 	--bgmed: #bfbfbf;
@@ -24,12 +26,12 @@
 	--currentsel2: #8deafa;
 	--flash: #ffffa5;
 	--focusrem: #ff5d7240;
-	--hover: #ccedf4a8;
+	--hover: #ccebf4a8;
 	--linknode: #0e8dfc;
     --muted: #b6b6b6;
 	--neutraldark: #4d4d4d;
 	--portal: #d0edf7;
-    --portalbg: #f6fbfc;
+    --portalbg: #f4fcff7d;
 	--queuebadge: black;
 	--queuebg: #1179ff;
 	--queuetext: white;
@@ -39,78 +41,49 @@
 	--remcustomicon: #33e308;
 	--remindent: #5aadea99;
 	--remlink: #0072e4;
+    --remnotincluded: #0076de;
 	--remrefbg: #f7fdc4db;
 	--search: #8f21d8;
 	--secondary: #85e80e;
 	--shadow: #00000030;
+    --sidebarbg:#f8f8f8;
 	--tagbg: #feffd5;
 	--tagcol: #303030;
+    --tertiary: #fa5ca6;
+    --textnormal: #080808;    --traillines: #94ccea;
      
 }
+::-webkit-scrollbar {
+    width: 10px !important;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent !important;     
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 200, 200, .3) !important;
+    border-radius: 0px!important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--hover) !important;
+}
+.katex {
+        font-size: 22px!important;
+  }
 /*========= SIDEBAR ===========*/
 #main #content #document-sidebar {
 	transition: margin-left .1s, height .1s, width .1s, opacity .1s;
 	border-right: solid;
-	border-color: var(--border);
-	border-width: 1px;
+	border-color: var(--borderlight);
+	border-width: 0px;
 	box-shadow: none;
 	height: 100%;
 	overflow: hidden;
-	background-color: var(--bglight);
+	background-color: var(--sidebarbg);
 	z-index: 4;
 	max-width: 240px;
 	display: flex;
 	flex-direction: column;
 	color: rgba(25, 25, 25, 0.72);
-}
-i.icon,
-i.icons {
-	font-size: 1em;
-}
-i.icon {
-	display: inline-block;
-	opacity: 1;
-	margin: 0 .15rem 0 0;
-	width: 1.18em;
-	height: 1em;
-	font-family: Icons;
-	font-style: normal;
-	font-weight: 400;
-	text-decoration: inherit;
-	text-align: center;
-	speak: none;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-#ArticleDocumentButton i.icon.file.text.large.icon {
-	margin: 0px 15px 0px 0px;
-}
-/* annotate icon NE */
-/* ==== sidebar documents icons ==== */
-#document-sidebar i {
-	color: var(--accent) !important;
-}
-/* ==== sidebar documents icon folder ==== */
-#document-sidebar i.folder.fitted.icon {
-	color: orange !important;
-	top: -2px;
-	left: 1px;
-	display: inline;
-	position: relative;
-}
-#document-sidebar i.add.corner.icon {
-	color: red !important;
-	top: -0px;
-	left: -4px;
-	display: inline;
-	position: relative;
-}
-
-/* ---- user icon NW ----*/
-i.user.icon {
-	color: var(--accent2) !important;
 }
 /*=====logo=======*/
 #homepage #content #document-sidebar #document-sidebar_top #logo img,
@@ -126,6 +99,143 @@ i.user.icon {
 #homepage #content #document-sidebar #document-sidebar_top #logo,
 #main #content #document-sidebar #document-sidebar_top #logo {
 	text-align: left;
+}
+/* ---- user icon NW ----*/
+#document-sidebar__account-capsule {
+    background-color: transparent;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 20px;
+    min-height: 30px;
+    font-weight: 700;
+    margin: 0px 5px 4px 4px;
+}
+#document-sidebar__account-capsule:hover {
+    background-color: var(--secondary);
+}
+#document-sidebar__account-capsule #document-sidebar__account-capsule__text {
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    min-height: 16px;
+    min-width: 16px;
+    margin: 1px 6px 0px 2px;
+    background-color: #505050;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}    
+/* ==== sidebar queue  ==== */
+#document-sidebar__link {
+    padding: 0px 9px 4px 3px;
+    font-weight: 700;
+}
+/*.document-sidebar__link__icon-container img {
+    filter: saturate(900%) hue-rotate(-4deg) contrast(80%) brightness(2) ;
+}*/
+#main #content #document-sidebar #document-sidebar__link:hover {
+	background-color: var(--hover)!important;
+}   
+#document-sidebar__link__queue-indicator {
+    float: right;
+    min-width: 20px;
+    margin-top: 0px;
+    background-color: rgb(227, 241, 240);
+    border-radius: 10px;
+    padding: 2px 10px 4px 8px;
+    text-align: center;
+    color:#000;
+}
+#document-sidebar i.fire.icon.streakFlame {
+    color: #ff3a3a !important;
+}
+.queue__streak-indicator {
+    display: inline;
+    align-items: center;
+    margin-right: 14px;
+    padding-top: 2px;
+}
+    
+    
+/* ==== sidebar documents  ==== */
+#document-sidebar__document-buttons {
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+#document-sidebar__document-buttons #document-sidebar__document-buttons__document-link-container {
+    padding: 4px 9px 9px 9px;
+    flex-grow: 1;
+    font-weight: 700;
+    left:-6px;
+    position:relative;
+}
+#document-sidebar__document-buttons #document-sidebar__document-buttons__document-link-container:hover {
+    background-color: var(--hover);
+}
+/* ==== sidebar documents icons ==== */
+/*#document-sidebar i {
+	color: var(--accent) !important;
+}*/
+.accordion.ui.fluid i {
+	color: var(--accent) !important;
+}
+/* ==== sidebar documents icon folder ==== */
+.document-sidebar__document-buttons__button img {
+    filter: saturate(900%) hue-rotate(-177deg) contrast(90%) brightness(2) ;
+}
+.document-sidebar__document-buttons__button img:hover {
+    filter: saturate(900%) hue-rotate(-17deg) contrast(90%) brightness(0.7) ;
+}
+.document-sidebar__document-buttons__menu__button > .file.icon {
+	color: #3ea4f8 !important;
+}
+.document-sidebar__document-buttons__menu__button > .calendar.icon {
+	color: #1ddd93 !important;
+}
+.document-sidebar__document-buttons__menu__button > .folder.icon {
+	color: #f8b436 !important;
+}
+.document-sidebar__document-buttons__menu__button > .pe,.square.icon {
+	color: #e36ffe !important;
+}
+
+/*==== sidebar documents list ==== */  
+#DocumentationList .document-list-header, #documentList .document-list-header {
+    height: 10px;
+    position: relative;
+    padding: 5px 9px 5px 8px;
+    display: block;
+    overflow-wrap: break-word;
+    transition: background-color .1s;
+    font-weight: 700;
+    margin: -4px 0px 4px 0px;
+}
+#DocumentationList .documentListNoDocuments, #documentList .documentListNoDocuments {
+    margin: 8px 15px 10px 15px;
+    color: rgba(0,0,0,.54);
+}
+#DocumentationList .document-list-item, #documentList .document-list-item {
+    height: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    border-left: solid;
+    border-width: 3px;
+    border-color: transparent;
+    align-items: center;
+    padding: 1px 0px 7px 10px;
+    transition: background-color .1s;
+    display:block;
+    left:20px;
+    width: 80%;
+}
+#DocumentationList .document-list-item--opened, #documentList .document-list-item--opened {
+    font-weight: 700;
+    border-width: 3px;
+    border-left-color: transparent;
 }
 /*==== sidebar bottom menu ==== */
 #document-sidebar__bottom-menu {
@@ -150,11 +260,17 @@ i.user.icon {
 	background-color: var(--flash) !important;
 }
 /*===== sidebar current selection====*/
+
+.document-sidebar__linkOpen {
+    background-color: var(--bgcol) !important;
+}
+    
 #homepage #content #document-sidebar #DocumentationList .document-list-item--opened,
 #homepage #content #document-sidebar #documentList .document-list-item--opened,
 #main #content #document-sidebar #DocumentationList .document-list-item--opened,
 #main #content #document-sidebar #documentList .document-list-item--opened {
 	background-color: var(--currentsel)!important;
+    color: black;
 }
 
 #homepage #content #document-sidebar #DocumentationList .document-list-item:hover,
@@ -167,20 +283,14 @@ i.user.icon {
 #main #content #document-sidebar #documentList .documentListHeader:hover {
 	background-color: var(--hover)!important;
 }
-#main #content #document-sidebar #document-sidebar__link:hover {
-	background-color: var(--hover)!important;
-}
-#main #content #document-sidebar #document-sidebar__link:selected {
-	background-color: var(--accent)!important;
-}
+
+
 /*=======NE ellipsis hover ======= */
-#document .documentMenu .documentOptions:hover {
+
+.document__options-menu i.ellipsis.horizontal.icon:hover {
 	color: var(--accentstrong) !important;
 }
-i.ellipsis horizontal icon:hover {
-	color: var(--accentstrong) !important;
-}
-/*========= documents page table ======*/
+/*========= documents page table OK! ======*/
 .ui.button {
 	cursor: pointer;
 	display: inline-block;
@@ -197,27 +307,67 @@ i.ellipsis horizontal icon:hover {
 	color: rgba(0, 0, 0, .8);
 }
 .ReactVirtualized__Table__row {
-	background: var(--bgcol) !important;
-	border-top: 1px solid var(--borderlight) !important;
+    background: var(--bgcol) !important;
+    border-top: 1px solid var(--borderlight) !important;   
+} 
+
+.ReactVirtualized__Table__rowColumn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #DocumentTable .DocumentLink {
 	display: block;
-	padding: 4px 0px 0px 0px;
-	height: 100%;
+	padding: 4px 0px 0px 0px !important;
 }
+#DocumentTable .DocumentLink:hover {
+	color: var(--accent3) !important;
+    font-weight:700;
+    background-color: transparent;
+}
+#DocumentTable .ui.fitted.checkbox {
+    position: relative;
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    outline: 0;
+    vertical-align: baseline;
+    font-style: normal;
+    min-height: 10px;
+    font-size: 1rem;
+    line-height: 1px;
+    min-width: 12px;
+}
+/*==== checkbox ====*/    
+.ui.checkbox .box:after, .ui.checkbox .box:before, .ui.checkbox label:after, .ui.checkbox label:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+}
+.ui.checkbox input:checked~.box:after, .ui.checkbox input:checked~label:after {
+    content: "\e800";
+    opacity: 1;
+    color: rgba(0,0,0,.95);
+    font-size: 12px;
+    text-align: center;
+    left:1px;
+}
+
+
 /*===== doc hover preview from sidebar ==== */
 #document-hover-preview {
 	position: fixed;
 	z-index: 5;
 	background-color: var(--bgcol);
     border-style: solid;
-	border: 1px solid #535353;
+	border: 1px solid var(--border);
 	padding: 20px 30px;
 	font-weight: 400;
 	color: initial;
 	text-align: initial;
 	overflow: hidden;
-	box-shadow: 3px 3px 9px 1px var(--shadow);
+	box-shadow: 2px 2px 7px 1px var(--shadow);
 }
 #document-hover-preview .rem-text {
 	font-size: 12px;
@@ -303,7 +453,7 @@ body {
 	margin-top: 0px;
 }
 
-/* ---- code &quote -------- */
+/* ---- code & quote -------- */
 #code-node {
 	background-color: var(--codebg);
 	filter: brightness(150%);
@@ -329,15 +479,32 @@ body {
 /* ====== RICH TEXT CONTEXT MENU ===== */
 .rich-text-editor__selected-text-menu {
 	background-color: var(--bgcol);
-	box-shadow: 2px 2px 3px 0px #03030324 !important;
-	border-radius: 5px;
-	border: thin solid #dcdcdc;
+	box-shadow: 1px 1px 8px 1px var(--shadow) !important;
+	border-radius: 4px;
+	border: thin solid var(--border);
 	margin-top: 5px;
+}
+.rich-text-editor__selected-text-menu .search-results {
+    min-width: unset;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    color: #000 !important;
+    font-size: 13px;
+    line-height: 1.4em;
 }
 .search-results #search-results__list #search-results__result:hover {
 	background-color: var(--hover);
 }
-
+.search-result__rem-breadcrumbs {
+    color: var(--textnormal);
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+.search-results #search-results__list #search-results__no-results, .search-results #search-results__list #search-results__result {
+    padding: 5px 7px;
+}
 /*=====rem custom type icon ======*/
 .rem-is-custom-rem-type {
 	color: var(--remcustomicon);
@@ -390,6 +557,15 @@ body {
     padding-right: 10px;
     padding-bottom: 10px;
 }
+
+#hierarchy-editor .hierarchy-editor__after-portal {
+    border-top-style: solid;
+    border-width: 1px;
+    padding-top: 5px;
+    margin-left: -7px;
+    margin-right: -7px;
+}
+    
 .HierarchyEditorAfterPortalBlue {
 	border-color: var(--portal);
 }
@@ -404,7 +580,7 @@ body {
 	color: var(--secondary);
 }*/
 
-/*===== portals 2 =======*/
+/*===== search portals  =======*/
 
 .embeddedSearch {
 	border-radius: 1px;
@@ -440,7 +616,7 @@ body {
     padding-left: 30px;
 }
 #hierarchy-editor .indented-hierarchy-editor-rem--portal-embedded-search {
-	border-color: var(--search);
+	border-color: var(--search) !important;
 }
 .remInEmbeddedSearch {
 	border-color: var(--search);
@@ -489,9 +665,35 @@ body {
 	margin-top: 0px;
 }
 #hierarchy-editor .rem-container--not-included-in-document-scope {
-    color: var(--muted);
+    color: var(--remnotincluded);
     font-size: 11px;
     padding-left: 15px!important;
+}
+/*----- split horiz fix ---------*/
+#hierarchy-editor #hierarchy-editor-list__sticky-top__container #hierarchy-editor-list__sticky-top .hierarchy-editor-list__sticky-top__rem-container {
+    position: relative;
+    margin-left: -11px;
+}
+#hierarchy-editor .indented-hierarchy-editor-rem {
+    border-color: #c8c8c8;
+    border-left: solid #c8c8c8;
+    border-width: thin;
+    padding-left: 19.5px; /*19.5*/
+    margin-left: 4px;
+    height: 100%;
+}
+#hierarchy-editor .indented-hierarchy-editor-remPortal {
+    border-left: solid;
+    border-width: 1px;
+    border-color: #add8e6;
+    padding-left: 10px;
+    margin-left: -7.5px;
+    height: 100%;
+}
+.remInPortal {
+    border-right-style: solid;
+    border-width: 1px;
+    padding-right: 15px;
 }
 /*----- separator ---------*/
 #hierarchy-editor .rem-container__top-level-spacer .rem-container__top-level-spacer__inner {
@@ -520,7 +722,18 @@ body {
 	border-color: var(--borderlight) !important;
 	border-left: 1px solid var(--borderlight) !important;
 }
-/* ==== context menu ==== */
+/* ==== right click menu ==== */
+.right-click-menu {
+    border-radius: 5px;
+    border: thin solid var(--border);
+    padding: 5px;
+    background-color: var(--bgcol);
+    position: fixed;
+    z-index: 9999;
+    color: var(--textnormal);
+}
+    
+/* ==== context menu ==== */ 
 .react-contextmenu--visible {
 	background-color: var(--bglight);
 	box-shadow: 5px 5px 4px -3px #00000036;
@@ -555,55 +768,113 @@ body {
 	}
 /*===== history boxes / thinking trail ====*/
 #thinking-trail-history {
-    width: 25px;
+    margin: 2px 65px 2px 5px;
+    width: 1px;
     height: 100%;
     z-index: 2;
 }
-
 #thinking-trail-history:hover #thinking-trail-history__container {
-    background-color: #fcfcfc;
-    box-shadow: 0 0 0px 0;
-    border-bottom-right-radius: 10px;
+    background-color: var(--bgcol);
+    box-shadow: 1px 1px 5px var(--shadow);
+    border-bottom-right-radius: 0px;
     overflow: visible;
-    width: auto;
+    width:40%;
 }
 #thinking-trail-history #thinking-trail-history__container {
     position: absolute;
     z-index: 1;
     display: flex;
     padding-top: 20px;
-    padding-right: 3px;
-    width: 10px;
+    padding-right: 5px;
+    width: 4.5px;
     overflow: hidden;
 }   
-#thinking-trail-history #thinking-trail-history__document-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: -7px;
-    margin-left: 10px;
-}   
+/* trail doc list */    
+#thinking-trail-history #thinking-trail-history__document-list .thinking-trail-history__document-dot__preview {
+    padding: 0.95px;
+    color: var(--textnormal);
+    background-color: var(--bgcol);
+    width:100%;
+}
+#thinking-trail-history #thinking-trail-history__document-list .thinking-trail-history__document-dot__preview:hover {
+        background-color: var(--hover-background-c);
+        color: var(--accent2);
+}
+/* trail X icon */    
 i.grey.icon {
-    color: #767676!important;
+    color: var(--accent3) !important;
 }
 i.grey.icon:hover {
     color: red!important;
 }
-/*===== add a portal button SE====*/
-#hierarchyEditorToolbarContainer #hierarchyEditorGlobalInsert .rich-text-editor {
-	border: thin solid #c8c8c8;
-	border-radius: 4px;
-	background-color: #fff;
-	padding: 5px;
-	margin: 5px 5px 4px;
+/* trail tree nodes */    
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot {
+        background-color: var(--bgcol);
+        border: 1px solid var(--accent3);
+        border-radius: 5px;
+        width: 5px;
+        height: 5px;
+        margin-left: -1px;
+    }
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-dot:hover{
+        background-color: var(--secondary)!important;
+        border: 1px solid var(--accent3)!important;
+        border-radius: 50%!important;
+        width: 5px!important;
+        height: 5px!important;
+        box-shadow: none!important;
+        margin-left: -1px!important;
+    }
+#thinking-trail-history .thinking-trail-history__document-dot--active {
+        background-color: var(--alert)!important;
+        border: 1px solid var(--alert)!important;
+        border-radius: 50%!important;
+        width: 5px!important;
+        height: 5px!important;
+        box-shadow: none!important;
+        margin-left: -1px!important;
+    }
+/* trail tree lines */ 
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__children-bar {
+        color: var(--traillines);
+    }   
+#thinking-trail-history .thinking-trail-history__document .thinking-trail-history__document-height-offset {    
+        background-color: var(--traillines);
+        width: 0.06em;
+        position: relative;
+        left: 6px;
+        margin-right: 0.77em;
+        display: inline-block;
+    }
+/*======================================*/    
+/*========== bottom toolbar ============*/  
+/*======================================*/    
+    
+#hierarchy-editor-toolbar-container {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    font-size: 10px;
+    margin: 0 -15px;
+    border-top: 1px solid var(--border);
+    background-color:var(--bglight);
 }
-#search-results__controls {
-	color: grey;
-	font-size: 10px;
-	padding-top: 4px;
-	padding-bottom: 5px;
-	text-align: center;
-	padding: 0px 0px 1px 2px;
-	line-height: 1.5em;
+/*===== add a portal button SE====*/
+.hierarchy-editor-toolbar-container--opened #hierarchy-editor-toolbar {
+    border-color: #c8c8c8;
+    border-top: solid #c8c8c8;
+    border-width: 0px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#hierarchy-editor-toolbar-container #hierarchy-editor__add-to-portal .search-results {
+    border-bottom-style: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 .search-results {
 	font-weight: 300;
@@ -625,7 +896,7 @@ i.grey.icon:hover {
     background-color: var(--portalbg);
 }
 /*==== rem highlight ======*/
-#hierarchy-editor .isToolbarPreviousFocusRem {
+#hierarchy-editor .is-toolbar-previous-focus-rem {
 	box-shadow: none !important;
 	border: 1px solid var(--accentstrong);
 	background-color: var(--focusrem);
@@ -717,4 +988,5 @@ i.icon.triangle.down:before {
 #hierarchy-editor .rem-container--default .rem-bullet__container, #hierarchy-editor .rem-container--default .rem-hamburger, #hierarchy-editor .rem-container--default .toggleCollapseButton {
     margin-top: 7.75px;
 }
+
 }
